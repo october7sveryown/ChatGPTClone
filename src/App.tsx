@@ -5,7 +5,7 @@ import './App.css'
 import '@chatscope/chat-ui-kit-styles/dist/default/styles.min.css'
 import { MainContainer, ChatContainer, MessageList, Message, MessageInput, TypingIndicator } from '@chatscope/chat-ui-kit-react'
 
-const OPEN_AI_API_KEY = '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'
+const OPEN_AI_API_KEY = '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'
 
 function App() {
   
@@ -13,7 +13,7 @@ function App() {
   const [messages, setMessages] = useState([
     {
       message : 'Hi, I am ChatGPT!',
-      sender : 'ChatGPT',
+      sender : 'ChatGPT'
     }
   ])
 
@@ -87,7 +87,7 @@ function App() {
           <ChatContainer>
             <MessageList scrollBehavior="smooth" typingIndicator={ typing ? <TypingIndicator content="ChatGPT is typing"/> : null }>
             {
-              messages.map(((message : any,index:number)=>{
+              messages.map(((message:any,index:number)=>{
                 return <Message key={index} model={message}/>
               }))
             }
