@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+//import reactLogo from './assets/react.svg'
+//import viteLogo from '/vite.svg'
 import './App.css'
 import '@chatscope/chat-ui-kit-styles/dist/default/styles.min.css'
 import { MainContainer, ChatContainer, MessageList, Message, MessageInput, TypingIndicator } from '@chatscope/chat-ui-kit-react'
@@ -13,7 +13,7 @@ function App() {
   const [messages, setMessages] = useState([
     {
       message : 'Hi, I am ChatGPT!',
-      sender : 'ChatGPT'
+      sender : 'ChatGPT',
     }
   ])
 
@@ -21,7 +21,7 @@ function App() {
   const [typing, setTyping] = useState(false)
 
   //handling send event
-  const handleSend = async (message) => {
+  const handleSend = async (message : any) => {
     const newMessage = {
       message : message,
       sender : 'user',
@@ -38,9 +38,9 @@ function App() {
   }
 
   //process messages
-  async function processMessages(chatMessagesList){
+  async function processMessages(chatMessagesList : any){
     //map messages as per request body required by API
-    let apiMessageList = chatMessagesList.map(((message)=>{
+    let apiMessageList = chatMessagesList.map(((message:any)=>{
       let role=""
       if(message.sender==="ChatGPT"){
         role="assistant"
@@ -85,9 +85,9 @@ function App() {
       <div style={{position:"relative", height:"700px", width:"600px"}}>
         <MainContainer>
           <ChatContainer>
-            <MessageList scrollbehaviour="smooth" typingIndicator={ typing ? <TypingIndicator content="ChatGPT is typing"/> : null }>
+            <MessageList scrollBehavior="smooth" typingIndicator={ typing ? <TypingIndicator content="ChatGPT is typing"/> : null }>
             {
-              messages.map(((message,index)=>{
+              messages.map(((message : any,index:number)=>{
                 return <Message key={index} model={message}/>
               }))
             }
