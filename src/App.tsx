@@ -5,8 +5,6 @@ import './App.css'
 import '@chatscope/chat-ui-kit-styles/dist/default/styles.min.css'
 import { MainContainer, ChatContainer, MessageList, Message, MessageInput, TypingIndicator } from '@chatscope/chat-ui-kit-react'
 
-const OPEN_AI_API_KEY = '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'
-
 function App() {
   
   //managing messages
@@ -60,7 +58,7 @@ function App() {
   await fetch("https://api.openai.com/v1/chat/completions", {
     method: "POST",
     headers : {
-      "Authorization" : "Bearer " + OPEN_AI_API_KEY,
+      "Authorization" : "Bearer " + import.meta.env.VITE_API_KEY,
       "Content-Type" : "application/json"
     },
     body : JSON.stringify(reqBody)
